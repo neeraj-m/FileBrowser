@@ -13,7 +13,7 @@ class FileList extends Component {
     }
 
     render() {
-        console.log(this.props.files)
+        // console.log(this.props.files)
         return (
             <ul className="list-group col-sm-4">
                 {this.renderList()}

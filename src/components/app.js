@@ -1,10 +1,11 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import React from 'react';
 import { Component } from 'react';
-import InfiniteTree from 'react-infinite-tree';
+// import InfiniteTree from 'react-infinite-tree';
 
 import SearchBar from '../components/search_bar'
 import FileList from '../containers/file-list'
+
 
 class App extends Component {
 
@@ -21,11 +22,12 @@ class App extends Component {
     }
 
     render() {
-        const fileSearch = _.debounce((term) => { this.fileSearch(term) } , 400);
+        // const fileSearch = _.debounce((term) => { this.fileSearch(term) } , 400);
 
         return (
             <div>
-                <SearchBar onSearchTermChange={fileSearch} />
+                {/* <SearchBar onSearchTermChange={fileSearch} /> */}
+                <SearchBar />
                 <FileList />
             </div>
         );

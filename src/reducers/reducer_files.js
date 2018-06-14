@@ -1,4 +1,5 @@
 import { normalize, schema } from 'normalizr';
+import {SEARCH} from '../actions/index';
 
 const originalData = {
     "0560669a-924f-491b-94e8-6746fd4e7491" : {
@@ -133,6 +134,14 @@ const fileListSchema = new schema.Array(valuesSchema);
 
 const normalizedData = normalize(originalData, fileListSchema);
 
-export default function() {
-    return normalizedData
+export default function reducer(state = normalizedData, action) {
+  switch(action.type) {
+    case SEARCH: {
+      const searchTerm = action.searchValue;
+      const result = state.result.filter((val) => val.title.includes(searchTerm));
+      return {...state, searchTerm, result};
+    }
+    default:
+      return state;
+  }
 }

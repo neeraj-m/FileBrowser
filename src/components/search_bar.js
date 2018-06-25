@@ -4,22 +4,22 @@ import { search } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 class SearchBar extends Component {
-    // constructor(props) {
-    //     super(props);
-    //
-    //     // ONLY HERE DO WE CHANGE THE STATE
-    //     this.state = {
-    //         term: 'test'
-    //      };
-    //
-    //     this.searchCallback = this.searchCallback.bind(this);
-    // }
+    constructor(props) {
+        super(props);
 
-    // searchCallback(value) {
-    //     this.setState({value});
-    //     search(value);
-    //     // this.props.getRequestedFiles(term);
-    // }
+        // ONLY HERE DO WE CHANGE THE STATE
+        this.state = {
+            term: ''
+         };
+
+        // this.searchCallback = this.searchCallback.bind(this);
+    }
+
+    onInputChange(value) {
+        this.setState({value});
+        this.props.onSearchTermChange(value);
+        // search(value);
+    }
 
     render() {
         const {search, value} = this.props;
@@ -29,7 +29,7 @@ class SearchBar extends Component {
                 <input
                     placeholder="Search for files..."
                     value={value}
-                    onChange={event => search(event.target.value)}
+                    onChange={event => this.onInputChange(event.target.value)}
                 />
             </div>
         );

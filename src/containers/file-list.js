@@ -90,8 +90,7 @@ class FileList extends Component {
 
 
 function mapStateToProps({files}) {
-    console.log(files)
-  return {files: files.result};
+    return {files: files.result};
 }
 
 export default connect(mapStateToProps)(FileList);
